@@ -16,7 +16,7 @@ body {
   display: block;
   width: 90%;
   border: none;
-  color: white;
+  color: black;
   font-size: 20px;
   padding: 20px;
   font-family: "Cascadia Mono", sans-serif;
@@ -24,7 +24,6 @@ body {
   }
   
   button {
-
   padding: 20px 50px 20px 70px;
   background-color: #024d3d;
   color: white;

@@ -1,10 +1,10 @@
 import { AiFillEdit, AiFillDelete} from "react-icons/ai"
 
-export const MyToDo = ({ text, editMyText, deleteMyToDo }) => {
+export const MyToDo = ({ text, updatingInInput, deleteMyToDo }) => {
     return (
     <div>
         <p>{text}</p>
-        <AiFillEdit onClick={editMyText}></AiFillEdit>
+        <AiFillEdit onClick={updatingInInput}></AiFillEdit>
         <AiFillDelete onClick={deleteMyToDo}></AiFillDelete>
 
 

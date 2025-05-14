@@ -17,7 +17,7 @@ const addToDo = (title, setTitle, setToDoList) => {
 }
 
 const editToDo = (toDoId, title, setTitle, setToDoList, setEditing) => {
-    axios.post(`http://localhost:4000/editToDo`, {_id: toDoId, title })
+    axios.put(`http://localhost:4000/editToDo`, {_id: toDoId, title })
     .then((data) => {
         console.log(data)
         setTitle("")

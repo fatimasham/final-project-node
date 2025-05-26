@@ -3,14 +3,14 @@ import axios from 'axios';
 
 
 const getAllToDo = (setToDoList) => {
-    axios.get("http://localhost:4000")
+    axios.get("https://backend-final-project-o8ql.onrender.com")
     .then(({data}) => {console.log(data)
         setToDoList(data);
 })
 }
 
 const addToDo = (title, setTitle, setToDoList) => {
-    axios.post(`http://localhost:4000/saveToDo`, { title })
+    axios.post(`https://backend-final-project-o8ql.onrender.com/saveToDo`, { title })
     .then((data) => {
         console.log(data)
         setTitle("")
@@ -19,7 +19,7 @@ const addToDo = (title, setTitle, setToDoList) => {
 }
 
 const editToDo = (toDoId, title, setTitle, setToDoList, setEditing) => {
-    axios.put(`http://localhost:4000/editToDo`, {_id: toDoId, title })
+    axios.put(`https://backend-final-project-o8ql.onrender.com/editToDo`, {_id: toDoId, title })
     .then((data) => {
         console.log(data)
         setTitle("")
@@ -29,7 +29,7 @@ const editToDo = (toDoId, title, setTitle, setToDoList, setEditing) => {
 }
 
 const deleteToDo = (_id, setToDoList) => {
-    axios.post(`http://localhost:4000/deleteToDo`, { _id })
+    axios.post(`https://backend-final-project-o8ql.onrender.com/deleteToDo`, { _id })
     .then((data) => {
         console.log(data)
         getAllToDo(setToDoList)

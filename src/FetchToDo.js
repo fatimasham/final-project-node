@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+
+
 const getAllToDo = (setToDoList) => {
     axios.get("http://localhost:4000")
     .then(({data}) => {console.log(data)
@@ -26,4 +28,13 @@ const editToDo = (toDoId, title, setTitle, setToDoList, setEditing) => {
     })
 }
 
-export { getAllToDo, addToDo, editToDo };
+const deleteToDo = (_id, setToDoList) => {
+    axios.post(`http://localhost:4000/deleteToDo`, { _id })
+    .then((data) => {
+        console.log(data)
+        getAllToDo(setToDoList)
+    })
+}
+
+
+export { getAllToDo, addToDo, editToDo, deleteToDo };

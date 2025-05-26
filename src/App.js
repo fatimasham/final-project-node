@@ -1,7 +1,8 @@
-import { getAllToDo, addToDo, editToDo } from './FetchToDo';
+import { getAllToDo, addToDo, editToDo, deleteToDo } from './FetchToDo';
 import './App.css';
 import { MyToDo } from './MyToDo';
 import { useEffect, useState } from 'react';
+
 
 function App() {
   const [toDoList, setToDoList] = useState([]);
@@ -31,14 +32,18 @@ function App() {
         onChange= {(e) => setTitle(e.target.value)}
       />
 
-      <button onClick=
-        {editing ? () => editToDo(toDoId, title, setToDoList, setTitle, setEditing) : () => addToDo(title, setTitle, setToDoList) }>
+      <button 
+      disabled={!title}
+      onClick=
+        {editing ? () => editToDo(toDoId, title, setTitle, setToDoList, setEditing) : () => addToDo(title, setTitle, setToDoList) }>
         {editing ? "Edit" : "Add"}
         </button>
 
 
       {toDoList.map((toDo) => <MyToDo text={toDo.title} key={toDo._id}
-      updatingInInput={() => updatingInInput(toDo._id, toDo.title)}/>
+      updatingInInput={() => updatingInInput(toDo._id, toDo.title)}
+      deleteToDo={() => deleteToDo(toDo._id, setToDoList) }
+      />
       )}
     </div>
   );
